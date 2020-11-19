@@ -1,4 +1,4 @@
-﻿#define _ver "1.1"
+﻿#define _ver "1.2"
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -123,25 +123,25 @@ uint16_t findWay(std::vector<std::vector<int>>& field, int x = -1, int y = -1) {
     int32_t steps = 10e9;
     int minLoc;
     if (x > 0) {
-        if (field[x - 1][y] < steps && field[x - 1][y] != -22 && field[x - 1][y] != -10) {
+        if (field[x - 1][y] < steps && field[x - 1][y] != -22 && field[x - 1][y] != -10 && field[x - 1][y] != 0) {
             minLoc = 10;
             steps = field[x - 1][y];
         }
     }
     if (x < height - 1) {
-        if (field[x + 1][y] < steps && field[x + 1][y] != -22 && field[x + 1][y] != -10) {
+        if (field[x + 1][y] < steps && field[x + 1][y] != -22 && field[x + 1][y] != -10 && field[x + 1][y] != 0) {
             minLoc = 11;
             steps = field[x + 1][y];
         }
     }
     if (y > 0) {
-        if (field[x][y - 1] < steps && field[x][y - 1] != -22 && field[x][y - 1] != -10) {
+        if (field[x][y - 1] < steps && field[x][y - 1] != -22 && field[x][y - 1] != -10 && field[x][y - 1] != 0) {
             minLoc = 20;
             steps = field[x][y - 1];
         }
     }
     if (y < height - 1) {
-        if (field[x][y + 1] < steps && field[x][y + 1] != -22 && field[x][y + 1] != -10) {
+        if (field[x][y + 1] < steps && field[x][y + 1] != -22 && field[x][y + 1] != -10 && field[x][y + 1] != 0) {
             minLoc = 21;
             steps = field[x][y + 1];
         }
