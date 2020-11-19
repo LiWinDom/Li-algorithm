@@ -1,4 +1,4 @@
-﻿#define _ver "1.0"
+﻿#define _ver "1.1"
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -171,7 +171,9 @@ uint16_t findWay(std::vector<std::vector<int>>& field, int x = -1, int y = -1) {
         }
     }
 
-
+    if (steps == -21) {
+        return 1;
+    }
     return steps + 1;
 }
 
@@ -410,8 +412,8 @@ int main() {
         drawBorders(gameWindow);
         showField(gameWindow, field);
 
-        if (steps > -1) {
-            text = "Founded way with " + std::to_string(steps) + " steps";
+        if (steps > 0) {
+            text = "Founded way with " + std::to_string(steps) + " step(s)";
         }
         else if (steps == -1) {
             text = "No way founded!";
