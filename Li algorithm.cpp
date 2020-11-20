@@ -1,4 +1,4 @@
-﻿#define _ver "1.2"
+﻿#define _ver "1.3"
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -40,7 +40,9 @@ void createCell(std::vector<std::vector<int>>& field, const uint8_t& x, const ui
             }
         }
     }
-    field[y][x] = -curMode;
+    if (x >= 0 && y >= 0 && x < width && y < height) {
+        field[y][x] = -curMode;
+    }
 
     return;
 }
@@ -377,7 +379,7 @@ void gameEventProcessing(sf::RenderWindow& window, sf::Event& event, std::vector
     else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
         sf::Vector2i pos = sf::Mouse::getPosition(window);
         if (pos.x > 0 && pos.y > 0) {
-            if (pos.x < (width * size) + (width + 1) * borderThinkness && pos.y < (height * size) + (height + 1) * borderThinkness) {
+            if (pos.x < (width * size) + (width * borderThinkness) && pos.y < (height * size) + (height * borderThinkness)) {
                 createCell(field, pos.x / (size + borderThinkness), pos.y / (size + borderThinkness), 0);
             }
         }
